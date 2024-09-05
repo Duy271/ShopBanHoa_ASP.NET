@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="../../Content/CSS/QuanLy.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>*@
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+<body>
+    <div id="khung">
+        <!-- menu first header -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="../../Content/Anh/hh1.jpg">
+                        <span class="nav-item">Code Info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Wallet</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item">Tasks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-cog"></i>
+                        <span class="nav-item">Setting</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="nav-item">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="shop-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="nav-item">Cart</span>
+                    </a>
+                </li>
+                <li style="height: 10px;">
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">LogOut</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- search second header -->
+        <div id="cach_dong"></div>
+       
+            @RenderBody()
+
+        
+        <div id="footer_first">
+            <div class="tienich">
+                <table>
+                    <tr>
+                        <td class="ti_1">
+                            <div>
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </div>
+                        </td>
+                        <td class="ti_2">
+                            <ul>
+                                <li>Free ship<br></li>
+                                <li>Bán kính 15km<br></li>
+                                <li>Trên 15km phí tính<br></li>
+                                <li>------</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tienich">
+                <table>
+                    <tr>
+                        <td class="ti_1">
+                            <div>
+                                <i class="bi bi-airplane-engines"></i>
+                            </div>
+                        </td>
+                        <td class="ti_2">
+                            <ul>
+                                <li>Giao nhanh<br></li>
+                                <li>Nội thành 4h<br></li>
+                                <li>Ngoại thành 12h<br></li>
+                                <li>Ngoài tỉnh 3 ngày</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tienich">
+                <table>
+                    <tr>
+                        <td class="ti_1">
+                            <div>
+                                <i class="bi bi-award"></i>
+                            </div>
+                        </td>
+                        <td class="ti_2">
+                            <ul>
+                                <li>Sản phẩm</li>
+                                <li>Chất lượng</li>
+                                <li>Chứng nhận<br></li>
+                                <li>Thông tin NSX</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var heartIcons = document.querySelectorAll(".bi-heart-fill");
+        heartIcons.forEach(function (icon) {
+            icon.addEventListener("click", function () {
+                // Toggle lớp "clicked" khi icon được nhấp vào
+                this.classList.toggle("clicked");
+            });
+        });
+
+
+
+    </script>
+</body>
+</html>
+

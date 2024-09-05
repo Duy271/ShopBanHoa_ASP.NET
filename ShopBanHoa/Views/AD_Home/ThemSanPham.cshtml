@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "ThemSanPham";
+    Layout = "~/Views/Layout/Layout_Admin.cshtml";
+}
+<div style="width:60%;margin:0 auto; border:1px solid">
+    <div style="text-align:center"><h3>Thêm Sản Phẩm</h3></div>
+    
+    <form id="productForm" action="ThemSanPham" method="post" enctype="multipart/form-data">
+
+        <div class="mb-3 row">
+
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Tên Hoa</label>
+                <input name="tenHoa" class="form-control form-control-sm" type="text" placeholder="Nhập Tên Hoa" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Mô Tả</label>
+                <input name="moTa" class="form-control form-control-sm" type="text" placeholder="Nhập Mô Tả" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Giá Bán</label>
+                <input name="giaBan" class="form-control form-control-sm" type="number" placeholder="Nhập Giá Bán" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">SL Kho</label>
+                <input name="slKho" class="form-control form-control-sm" type="number" placeholder="Nhập Số Lượng Kho" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+            </div>
+
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Loại Hoa</label>
+                <select name="loaiHoa" class="form-select form-select-sm" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+                    <option>Hoa Hồng</option>
+                    <option>Hoa Cúc</option>
+                    <option>Hoa Lan</option>
+                    <option>Hoa Tulip</option>
+                    <option>Hoa Giấy</option>
+
+                </select>
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Màu Hoa</label>
+                <select name="mauHoa" class="form-select form-select-sm" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+                    <option>Đỏ</option>
+                    <option>Vàng</option>
+                    <option>Hồng</option>
+                    <option>Tím</option>
+                    <option>Trắng</option>
+
+                </select>
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Kích Thước</label>
+                <select name="kichThuoc" class="form-select form-select-sm" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+                    <option>To</option>
+                    <option>Nhỏ</option>
+                    <option>Vừa</option>
+                </select>
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Khuyến Mãi</label>
+                <input name="khuyenMai" class="form-control form-control-sm" type="number" placeholder="Nhập Số Tiền Khuyến Mãi" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Chọn Ảnh</label>
+                <input class="form-control form-control-sm" name="fileUpload" type="file" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+            </div>
+        </div>
+        <div style="text-align:center">
+
+            <button type="submit" onclick="validateForm()" class=" btn btn-primary">Thêm Sản Phẩm</button>
+        </div>
+        <b style="color:red">@ViewBag.tb</b>
+
+    </form>
+
+</div>
+<script>
+    function validateForm() {
+        // Lấy giá trị từ các trường biểu mẫu
+        var giaBan = document.querySelector('input[placeholder="Nhập Giá Bán"]').value;
+        var khuyenMai = document.querySelector('input[placeholder="Nhập Số Tiền Khuyến Mãi"]').value;
+        var soLuongKho = document.querySelector('input[placeholder="Nhập Số Lượng Kho"]').value;
+
+        // Kiểm tra xem giaBan, khuyenMai và soLuongKho có phải là số hay không
+        if (isNaN(giaBan) || isNaN(khuyenMai) || isNaN(soLuongKho)) {
+            alert("Giá bán, khuyến mãi, và số lượng kho phải là số.");
+            return;
+        }
+
+        // Bổ sung logic kiểm tra khác có thể được thêm vào đây
+
+        // Nếu tất cả các kiểm tra đều đúng, gửi biểu mẫu
+        document.getElementById("productForm").submit();
+        return false;
+    }
+</script>

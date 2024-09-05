@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "AD_DangKyTaiKhoan";
+    Layout = "~/Views/Layout/Layout_Admin.cshtml";
+}
+
+<style type="text/css">
+    #khung_pf {
+        margin: 0 auto;
+        border: 1px solid purple;
+        border-radius: 10px;
+        height: 380px;
+        width: 700px;
+    }
+
+        #khung_pf:hover {
+            margin: 0 auto;
+            border: 2px solid purple;
+            border-radius: 10px;
+            height: 380px;
+            width: 700px;
+        }
+
+    #khungl_pf {
+        width: 350px;
+        height: 400px;
+        float: left;
+    }
+
+    #khungr_pf {
+        width: 340px;
+        height: 400px;
+        float: left;
+    }
+
+    #khungimg_pf {
+        height: 320px;
+        width: 320px;
+        border-radius: 50%;
+        margin: 0 auto;
+        box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .anh_pf {
+        height: 320px;
+        width: 320px;
+        border-radius: 50%;
+    }
+
+    #khungtai_pf {
+        margin: 0 auto;
+    }
+</style>
+
+<div id="khung_pf">
+    <div id="khungl_pf">
+        <div id="khungimg_pf">
+            <img class="anh_pf" src="../../Content/Anh/logoForD.png">
+        </div>
+        <div id="khungtai_pf">
+
+
+        </div>
+    </div>
+    <div id="khungr_pf">
+        <form action="AD_DangKyTaiKhoan" enctype="multipart/form-data" method="post">
+            <div class="mb-3 row">
+                <div class="col-sm-10" style=" margin:0 auto">
+                    <label for="inputPassword" class="col-sm-2 col-form-label" style="width: 340px;">Tài Khoản</label>
+                    <input name="tk" class="form-control form-control-sm" type="text" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+                </div>
+                <div class="col-sm-10" style=" margin:0 auto">
+                    <label for="inputPassword" class="col-sm-2 col-form-label" style="width: 340px;">Mật Khẩu </label>
+                    <input name="mk" class="form-control form-control-sm" type="password" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+                </div>
+                <div class="col-sm-10" style=" margin:0 auto">
+                    <label for="inputPassword" class="col-sm-2 col-form-label" style="width: 340px;">Xác Nhận Mật Khẩu</label>
+                    <input name="xnmk" class="form-control form-control-sm" type="password" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px">
+                    @*<b id="tbmkm"></b>*@
+                </div>
+
+                <div style="text-align:center">
+                    <b id="tbxn" style="color:red">@ViewBag.tb</b>
+
+                </div>
+                <div style="text-align:center">
+                    <button style="margin-top: 13px;" type="submit" class=" btn btn-primary">Đổi Mật Khẩu</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

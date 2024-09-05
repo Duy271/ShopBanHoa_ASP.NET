@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ShopBanHoa.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "XemDonHang";
+    Layout = "~/Views/Layout/Layout_KhungPhu.cshtml";
+}
+
+<h2>Đơn Sắp Đến</h2>
+
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ngày Đặt</th>
+                <th scope="col">Tên Khách</th>
+                <th scope="col">Địa Chỉ</th>
+                <th scope="col">Số ĐT</th>
+                <th scope="col">Tổng Tiền</th>
+                <th scope="col">Trạng Thái</th>
+                <th scope="col">Xem</th>
+                <th scope="col">Hủy</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="col">@string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayDatHang)</td>
+
+                    <td scope="col">@item.TenKhachHang</td>
+                    <td scope="col">@item.DiaChiGiaoHang</td>
+                    <td scope="col">@item.SoDienThoai</td>
+                    <td scope="col">@item.TongGiaTriDonHang</td>
+                    <td scope="col">@item.TrangThaiDonHang</td>
+                    <td scope="col"><a href="@Url.Action("XemChiTietDonHang", "Home", new {ma=@item.MaDonHang })"><i class="bi bi-card-list"></i></a></td>
+                    <td scope="col"><a href="@Url.Action("HuyDonHang", "Home", new {ma=@item.MaDonHang })"><i class="bi bi-x-circle"></i></a></td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>
+

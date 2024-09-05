@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ShopBanHoa.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "AD_CapNhatDonHang";
+    Layout = "~/Views/Layout/Layout_Admin.cshtml";
+}
+
+<h2>Đơn Hàng Cần Xử Lý</h2>
+
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ngày Đặt</th>
+                <th scope="col">Tên Khách</th>
+                <th scope="col">Địa Chỉ</th>
+                <th scope="col">Số ĐT</th>
+                <th scope="col">Tổng Tiền</th>
+                <th scope="col">Trạng Thái</th>
+                <th scope="col">Succed</th>         
+                <th scope="col">Xem</th>
+                <th scope="col">Xóa</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="col">@string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayDatHang)</td>
+
+                    <td scope="col">@item.TenKhachHang</td>
+                    <td scope="col">@item.DiaChiGiaoHang</td>
+                    <td scope="col">@item.SoDienThoai</td>
+                    <td scope="col">@item.TongGiaTriDonHang</td>
+                    <td scope="col">@item.TrangThaiDonHang</td>
+                    @if (item.TrangThaiDonHang == "Chưa Xử Lý")
+                    {
+                        <td scope="col"><button type="button" style="width:100px;" class="btn btn-info btn-update-trang-thai" data-ma-don-hang="@item.MaDonHang">Đi Đơn</button></td>
+                    }
+                    else if (item.TrangThaiDonHang == "Đã Đi Đơn")
+                    {
+                        <td scope="col"><button type="button" style="width:100px;" class="btn btn-info btn-update-trang-thai" data-ma-don-hang="@item.MaDonHang">Đang Giao</button></td> <!-- Có thể thay đổi thành nội dung khác nếu cần -->
+                    }
+                    else if (item.TrangThaiDonHang == "Đang Giao Hàng")
+                    {
+                        <td scope="col"><button type="button" style="width:100px;" class="btn btn-info btn-update-trang-thai" data-ma-don-hang="@item.MaDonHang">Sắp Đến</button></td>
+                    }
+                    else if (item.TrangThaiDonHang == "Sắp Đến Bạn")
+                    {
+                        <td scope="col"><button type="button" style="width:100px;" class="btn btn-info btn-update-trang-thai" data-ma-don-hang="@item.MaDonHang">Gần Đến</button></td>
+                    }else
+                    {
+                        <td scope="col"><button type="button" style="width:100px;" class="btn btn-info btn-update-trang-thai" data-ma-don-hang="@item.MaDonHang">TH.Toán</button></td>
+                    }
+                    
+                    
+                    <td scope="col"><a href="@Url.Action("AD_XemChiTietDonHang", "AD_Home", new {ma=@item.MaDonHang })"><i class="bi bi-card-list"></i></a></td>
+                    <td scope="col"><a href="@Url.Action("AD_XoaDonHang", "AD_Home", new { ma = @item.MaDonHang })"><i class="bi bi-trash3"></i></a></td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- Thêm mã JavaScript vào trang của bạn -->
+    <script>
+        $(document).ready(function () {
+            // Gán sự kiện click cho nút "Đi Đơn", "Đang Giao",...
+            $(".btn-update-trang-thai").click(function () {
+                var maDonHang = $(this).data("ma-don-hang");
+
+                // Gửi yêu cầu AJAX
+                $.ajax({
+                    url: '@Url.Action("UpdateTrangThaiDonHang", "AD_Home")',
+                    type: 'POST',
+                    data: { maDonHang: maDonHang },
+                    success: function (result) {
+                        if (result.success) {
+                            // Cập nhật giao diện người dùng nếu cần thiết
+                            // (Ví dụ: thay đổi nút, cập nhật trạng thái trên trang, ...)
+                            alert("Cập nhật trạng thái thành công!");
+                            location.reload(); // Cập nhật lại trang
+                        } else {
+                            alert("Cập nhật trạng thái không thành công!");
+                        }
+                    },
+                    error: function () {
+                        alert("Đã xảy ra lỗi trong quá trình xử lý yêu cầu.");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+

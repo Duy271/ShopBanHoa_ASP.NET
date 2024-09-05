@@ -1,0 +1,260 @@
+﻿@model IEnumerable<ShopBanHoa.Models.Hoa>
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Layout/Layout_TrangChu.cshtml";
+}
+
+<div id="contant_three">
+    <!-- contant search, carousel, name -->
+    <div id="head_search">
+        <div class="hs_logo">
+            <img src="../../Content/Anh/logoForD.png" class="logo_image"><span class="logo_text">DúyhopHo</span>
+        </div>
+        <div class="hs_search">
+            <form id="searchForm" class="search-form">
+                <input type="text" id="searchInput" name="keyword" placeholder="Search..." class="search-input">
+                <button type="submit" onclick="search()" class="search-button">
+                    <i class="fa fa-search search-icon"></i>
+                </button>
+            </form>
+
+        </div>
+        <div class="hs_phone">
+            <div class="phone-content">
+                <i class="fa fa-phone phone-icon"><b style="color: black;">&nbsp;Liên Hệ</b></i>
+                <span class="phone-number">+0962336422</span>
+            </div>
+        </div>
+
+        <div class="hs_place">
+            <div class="place-content">
+                <i class="fa fa-map-marker location-icon"><b style="color: black;">&nbsp;Hệ Thống</b></i>
+                <span class="place-number">Cửa Hàng</span>
+            </div>
+        </div>
+        <div class="hs_website">
+            <div class="website-content">
+                <i class="fa fa-globe website-icon"><b style="color: black;">&nbsp;Website</b></i>
+                <span class="website-number">Cửa Hàng</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="carousel">
+
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="../../Content/Anh/crs1.jpg" class="d-block w-100 crs_img" style="height:350px" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="../../Content/Anh/crs2.jpg" class="d-block w-100 crs_img" style="height:350px" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="../../Content/Anh/crs3.jpg" class="d-block w-100 crs_img" style="height:350px" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
+<div style="text-align:center" id="name_shop">
+    <h3>Flower Shop</h3>
+    <h2>Sản Phẩm Nổi Bậc</h2>
+</div>
+
+<div id="pr">
+    @foreach (var item in Model)
+{
+
+    <div class="fw_contant">
+
+        <div class="fw_head">
+            <img src="../../Content/Anh/@item.AnhHoa">
+            <i class="bi bi-heart-fill"></i>
+            <i class="bi bi-heart"></i>
+        </div>
+        <div class="fw_foot">
+            <p class="fw_foot_name">@item.TenHoa</p>
+            <ul class="fw_foot_info">
+                <li><i class="bi bi-check-circle-fill"></i><span>&nbsp;&nbsp;&nbsp;@item.GiaBan</span></li>
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>&nbsp;&nbsp;&nbsp;
+                    @*<i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>*@
+                    <a style="text-decoration:none" href="@Url.Action("ChiTietSanPham", "Home", new {masp=@item.MaHoa })"><b style="color:yellow">Chi Tiết</b></a>
+                    <a style="text-decoration:none" href="javascript:void(0);" onclick="themVaoGioHang(@item.MaHoa)">
+                        <i class="bi bi-cart-plus-fill"></i>
+                    </a>
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i><span>&nbsp;&nbsp;&nbsp;<b class="giam_info">Khuyến mãi: @item.KhuyenMai</b></span></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+}
+
+
+
+    @{
+        int PrevPage = ViewBag.Page - 1;
+        if (PrevPage <= 0)
+        {
+            PrevPage = 1;
+        }
+        int NextPage = ViewBag.Page + 1;
+        if (NextPage > ViewBag.NoOfPages)
+        {
+            NextPage = ViewBag.NoOfPages;
+        }
+    }
+    <div class="phantrang"></div>
+    <ul class="ulphantrang">
+        @if (PrevPage > 0)
+        {
+            <li>
+                <a href="@Url.Action("TrangChu", "Home", new { page=@PrevPage})"><<</a>
+            </li> 
+        }
+
+        @for (int i = 0; i < ViewBag.NoOfPages; i++)
+        {
+            if (i + 1 == ViewBag.Page)
+            {
+                <li>
+                    <a href="@Url.Action("TrangChu", "Home", new { page=@i+1})">@(i + 1)</a>
+                </li>
+            }
+            else
+            {  
+                <li>
+                    <a href="@Url.Action("TrangChu", "Home", new { page=@i+1})">@(i + 1)</a>
+                </li>
+            }
+        }
+
+        @if (NextPage <= ViewBag.NoOfPages)
+        {
+            <li>
+                <a  href="@Url.Action("TrangChu", "Home", new { page=@NextPage})">>></a>
+            </li>
+        }
+    </ul>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function themVaoGioHang(maHoa) {
+            $.ajax({
+                type: "POST",
+                url: "/Home/ThemGioHang",
+                data: { maHoa: maHoa },
+                success: function (result) {
+                    if (result.success) {
+                        //alert("Thêm Thành Công");
+                        window.location.reload();
+                    } else {
+                        if (result.redirect) {
+                            window.location.href = "/Form/V_DangNhap"; // Chuyển hướng nếu cần
+                        } else {
+                            alert("Đã xảy ra lỗi khi thêm vào giỏ hàng.");
+                        }
+                    }
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi khi thực hiện yêu cầu.");
+                }
+            });
+        }
+
+    </script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+        var heartIcons = document.querySelectorAll(".bi-heart-fill");
+        heartIcons.forEach(function (icon) {
+            icon.addEventListener("click", function () {
+                // Toggle lớp "clicked" khi icon được nhấp vào
+                this.classList.toggle("clicked");
+            });
+        });
+
+        function search() {
+            var keyword = $("#searchInput").val();
+
+            $.ajax({
+                url: '@Url.Action("Search", "Home")',
+                type: 'Post',
+                data: { keyword: keyword },
+                success: function (data) {
+                    $("#pr").html(data);
+                },
+                error: function () {
+                    alert('Đã xảy ra lỗi khi xử lý yêu cầu của bạn.');
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $('#searchForm').submit(function (e) {
+                e.preventDefault(); // Ngăn chặn form gửi đi mặc định
+                search(); // Gọi hàm search() để thực hiện Ajax
+            });
+        });
+
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#btnMoGioHang").click(function () {
+            // Gửi yêu cầu AJAX để lấy thông tin giỏ hàng
+            $.ajax({
+                url: "/Home/GioHang",
+                type: "GET",
+                success: function (result) {
+                    // Sử dụng SweetAlert để hiển thị thông báo
+                    Swal.fire({
+                        title: 'Giỏ Hàng',
+                        html: result,
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        focusConfirm: false,
+                        confirmButtonText: 'Giao Diện Này Chỉ Để Xem->Chi Tiết',
+                    }, function (isConfirmed) {
+                        if (isConfirmed) {
+                            // Chuyển hướng đến trang GioHang
+                            window.location.href = "/Home/GioHang";
+                        }
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+
+</script>
+
+
+
+<script>
+    function chuyenHuongChiTiet(masp) {
+        window.location.href = "/Home/ChiTietSanPham?masp=" + masp;
+    }
+</script>
+
+

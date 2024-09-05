@@ -1,0 +1,165 @@
+﻿
+@model IEnumerable<ShopBanHoa.Models.Hoa>
+@{
+    ViewBag.Title = "QL_SanPham";
+    Layout = "~/Views/Layout/Layout_Admin.cshtml";
+
+}
+
+<form id="searchForm" class="search-form" method="post" action="Search_QLSP">
+    <input type="text" id="searchInput" name="tenhoa" placeholder="Search..." class="search-input">
+    <button type="submit" class="search-button">
+        <i class="fa fa-search search-icon"></i>
+    </button>
+</form>
+
+
+
+<div class="container" style="z-index:100">
+    <div class="table-responsive">
+
+        <table class="table" id="table-sanpham">
+            <thead>
+                <tr style="position:relative;left:-16px;">
+                    <th scope="col"><input type="checkbox" class="accountCheckbox" name="selectedAccounts" id="checkall" value="" /></th>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên Hoa</th>
+                    <th scope="col">Giá Bán</th>
+                    <th scope="col">Số Lượng</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Khuyến Mãi</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">
+                        <button type="button" id="xoa-sanpham"><i class="bi bi-trash3"></i></button>
+                        <input type="hidden" name="selectedAccounts" id="selectedAccounts" />
+                    </th>
+
+                    <th scope="col"><a style="color:black" href="@Url.Action("ThemSanPham","AD_Home")"><i class="bi bi-plus-lg"></i></a></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int t = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><input type="checkbox" class="accountCheckbox" name="selectedAccounts" id="checkbox_@item.MaHoa" value="@item.MaHoa" /></td>
+                            <td>@t</td>
+                            <td>@item.TenHoa</td>
+                            <td>@item.GiaBan</td>
+                            <td>@item.SoLuongTonKho</td>
+                            <td>@item.KichThuoc</td>
+                            <td>@item.KhuyenMai</td>
+                            <td><img style="width:30px" src="../../Content/Anh/hh1.jpg" /></td>
+                            <td>
+                                <form action="/AD_Home/Delete_SP" method="post" class="deleteForm">
+                                    <input type="hidden" name="masp" value="@item.MaHoa" />
+                                    <button type="submit" class="deleteButton"><i class="bi bi-x-lg"></i></button>
+                                </form>
+                            </td>
+
+
+                            <td>
+                                <form action="/AD_Home/Delete_TK" method="post" class="deleteForm">
+                                    <input type="hidden" name="taikhoan" value="@item.MaHoa" />
+                                    <button type="submit" class="deleteButton"><i class="bi bi-gear"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        t++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+@{
+    int PrevPage = ViewBag.Page - 1;
+    if (PrevPage <= 0)
+    {
+        PrevPage = 1;
+    }
+    int NextPage = ViewBag.Page + 1;
+    if (NextPage > ViewBag.NoOfPages)
+    {
+        NextPage = ViewBag.NoOfPages;
+    }
+}
+@*<div class="phantrang" style="border:1px solid;margin-bottom:300px"></div>*@
+<ul class="ulphantrang">
+    @if (PrevPage > 0)
+    {
+        <li>
+            <a href="@Url.Action("QL_SanPham", "AD_Home", new { page=@PrevPage})"><<</a>
+        </li>
+
+    }
+
+    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+    {
+        if (i + 1 == ViewBag.Page)
+        {
+            <li>
+                <a href="@Url.Action("QL_SanPham", "AD_Home", new { page=@i+1})">@(i + 1)</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("QL_SanPham", "AD_Home", new { page=@i+1})">@(i + 1)</a>
+            </li>
+        }
+    }
+
+    @if (NextPage <= ViewBag.NoOfPages)
+    {
+        <li>
+            <a href="@Url.Action("QL_SanPham", "AD_Home", new { page=@NextPage})">>></a>
+        </li>
+    }
+</ul>
+
+<!-- Thêm jQuery từ CDN -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#checkall").change(function () {
+            if (this.checked) {
+                $("#table-sanpham input.accountCheckbox").prop("checked", true);
+            } else {
+                $("#table-sanpham input.accountCheckbox").prop("checked", false);
+            }
+        });
+
+        $("#xoa-sanpham").click(function () {
+            var selectedAccounts = [];
+            $("#table-sanpham tbody input.accountCheckbox:checked").each(function () {
+                selectedAccounts.push($(this).val());
+            });
+
+            if (selectedAccounts.length > 0) {
+                if (confirm("Bạn có chắc chắn muốn xóa các loại hoa đã chọn không?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/AD_Home/DeleteSelected_SP",
+                        data: { selectedAccounts: selectedAccounts },
+                        traditional: true, // Thêm thuộc tính này để truyền mảng đúng cách
+                        success: function (result) {
+                            window.location.reload();
+                        },
+                        error: function (error) {
+                            console.log("Lỗi xóa: ", error);
+                        }
+                    });
+                }
+            } else {
+                alert("Vui lòng chọn ít nhất một hoa để xóa.");
+            }
+        });
+    });
+
+</script>
+

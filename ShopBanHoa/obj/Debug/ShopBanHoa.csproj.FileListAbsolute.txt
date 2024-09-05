@@ -1,0 +1,39 @@
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\ShopBanHoa.dll.config
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\ShopBanHoa.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\ShopBanHoa.pdb
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Helpers.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Mvc.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Razor.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Razor.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Razor.xml
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.xml
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Razor.xml
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Helpers.xml
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Mvc.xml
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.dll
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.pdb
+C:\Users\Duy\Desktop\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.csprojResolveAssemblyReference.cache
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\ShopBanHoa.dll.config
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\ShopBanHoa.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\ShopBanHoa.pdb
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Helpers.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Mvc.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Razor.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Deployment.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Razor.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Razor.xml
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.xml
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Deployment.xml
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Webpages.Razor.xml
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Helpers.xml
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\System.Web.Mvc.xml
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.csproj.AssemblyReference.cache
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.csproj.CoreCompileInputs.cache
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.csproj.CopyComplete
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.dll
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\obj\Debug\ShopBanHoa.pdb
+D:\ALL\KY1_NAM3\LT WEB\DoAn\2001215672_NguyenKhanhDuy_ShopBanHoa\WebBanHoa\ShopBanHoa\ShopBanHoa\bin\Microsoft.Web.Infrastructure.dll

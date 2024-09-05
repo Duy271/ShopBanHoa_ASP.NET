@@ -1,0 +1,122 @@
+﻿@model ShopBanHoa.Models.Hoa
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Layout/Layout_KhungPhu.cshtml";
+    //var a = @ViewBag.anh1;
+    //var b = @ViewBag.anh2;
+    //var c = @ViewBag.anh3;
+}
+
+   <div class="flex-box">
+    <div class="left">
+        <div class="big-img">
+            <img src="../../Content/Anh/@Model.AnhHoa">
+        </div>
+        <div class="images">
+            <div class="small-img">
+                <img src="../../Content/Anh/@Model.AnhHoa" onclick="showImg(this.src)" />
+            </div>
+            <div class="small-img">
+                <img src="../../Content/Anh/@ViewBag.anh1" onclick="showImg(this.src)" />
+            </div>
+            <div class="small-img">
+                <img src="../../Content/Anh/@ViewBag.anh2" onclick="showImg(this.src)" />
+            </div>
+            <div class="small-img">
+                <img src="../../Content/Anh/@ViewBag.anh3" onclick="showImg(this.src)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="url">Home > Product > Flower</div>
+        <div class="pname">@Model.TenHoa</div>
+        <div class="ratings">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="price">@Model.MoTaHoa</div>
+        <div class="price">@Model.GiaBan</div>
+        <div class="price">@Model.KhuyenMai</div>
+        
+        <div class="quantity">
+            <p>Số Lượng :</p>
+            <input id="quantityInput" type="number" min="1" value="1">
+        </div>
+        <div class="btn-box">
+            <button class="cart-btn" onclick="themVaoGioHang(@Model.MaHoa)">Add to Cart</button>
+            
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    let bigImg = document.querySelector('.big-img img');
+    function showImg(pic) {
+        bigImg.src = pic;
+    }
+</script>
+<script>
+    function themVaoGioHang(maHoa) {
+        $.ajax({
+            type: "POST",
+            url: "/Home/ThemGioHang",
+            data: { maHoa: maHoa },
+            success: function (result) {
+                if (result.success) {
+                    alert("Thêm Thành Công");
+                    window.location.href = "/Home/TrangChu";
+                } else {
+                    if (result.redirect) {
+                        alert("Đăng nhập để thực hiện");// Chuyển hướng nếu cần
+                    } else {
+                        alert("Đã xảy ra lỗi khi thêm vào giỏ hàng.");
+                    }
+                }
+            },
+            error: function () {
+                alert("Đã xảy ra lỗi khi thực hiện yêu cầu.");
+            }
+        });
+    }
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function buyNow(maHoa) {
+        try {
+            console.log("buyNow function called");
+
+            var quantity = parseInt($("#quantityInput").val()) || 1;
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/DatTuChiTiet",
+                data: { ma: maHoa, slm: quantity },
+                success: function (result) {
+                    console.log(result);
+
+                    if (result && result.success) {
+                        alert("Đặt hàng thành công");
+                        window.location.href = "/Home/TrangChu";
+                    } else {
+                        alert("Đã xảy ra lỗi khi đặt hàng.");
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.error("Error:", errorThrown);
+                    alert("Đã xảy ra lỗi khi thực hiện yêu cầu.");
+                }
+            });
+        } catch (error) {
+            console.error("Unexpected error:", error);
+        }
+    }
+</script>
+

@@ -1,0 +1,1592 @@
+﻿   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@media (max-width: 768px) {
+    #khung {
+        z-index: 10;
+        width: 700px;
+    }
+    .contant_tb {
+        width: 100%;
+        height: 100%;
+      
+    }
+ 
+    .w-100 {
+        height: 200px;
+    }
+    .cs_tb1 {
+        width: 1200px;
+    }
+
+    .cs_tb2 {
+        width: 30%;
+        height: 50%;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        background: #dfe9f5;
+    }
+
+    nav {
+        position: fixed;
+        z-index: 101;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        background: #fff;
+        width: 90px;
+        overflow: hidden;
+        transition: width 0.2s linear;
+        box-shadow: 0 20px 35px rgba(216, 138, 4, 0.1);
+    }
+
+    .logo {
+        text-align: center;
+        display: flex;
+        transition: all 0.5s ease;
+        margin: 10px 0 0 10px;
+    }
+
+        .logo > img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .logo > span {
+            font-weight: bold;
+            padding-left: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+    .fas {
+        color: blueviolet;
+        position: relative;
+        width: 70px;
+        height: 40px;
+        top: 14px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    nav ul li {
+        list-style-type: none;
+        margin-left: -30px;
+    }
+
+        nav ul li a {
+            position: relative;
+            color: rgb(85, 83, 83);
+            font-size: 14px;
+            display: table;
+            width: 300px;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+    .nav-item {
+        position: relative;
+        top: 12px;
+        margin-left: 10px;
+    }
+
+    a:hover {
+        background: #eee;
+    }
+
+    nav:hover {
+        width: 240px;
+        transition: all 0.5s ease;
+    }
+
+    .logout {
+        position: absolute;
+        bottom: 0px;
+    }
+    /* search second header */
+    #cach_dong {
+        height: 0px;
+    }
+
+    #head_search {
+        flex: 1;
+        margin: 0px auto;
+        z-index: 1000;
+      
+        height: 100px;
+        width: 660px;
+        display: flex;
+        margin-left: 90px;
+    }
+
+    .hs_logo {
+        width: 30%;
+        /* border: 1px solid; */
+        background-color: white;
+        text-align: center;
+        display: flex;
+        align-items: center; /* Để ảnh nằm giữa theo chiều dọc */
+        justify-content: center;
+    }
+
+    .logo_image {
+        max-height: 90%;
+        height: 90px;
+        margin: 0; /* Xóa margin của hình ảnh */
+        padding: 0; /* Xóa padding của hình ảnh */
+    }
+
+    .logo_text {
+        margin: 0; /* Xóa margin của văn bản */
+        padding: 0; /* Xóa padding của văn bản */
+        max-width: 90px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .hs_search {
+        width: 500px;
+        background-color: white;
+        position:relative;
+      /*  border: 1px solid;*/
+        display: flex;
+        align-items: center; /* Để ảnh nằm giữa theo chiều dọc */
+        justify-content: center;
+    }
+
+    .search-form {
+        display: flex;
+        align-items: center;
+        width: 60%;
+        margin-left:-80px;
+    }
+
+    .search-input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        flex-grow: 1;
+    }
+
+    .search-button {
+        background-color: #0074d9;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .search-icon {
+        font-size: 20px;
+    }
+
+    .hs_phone {
+        width: 10%;
+        /* border: 1px solid; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+    .phone-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phone-icon {
+        font-size: 1vw; /* Sử dụng em cho font-size */
+        color: #0074d9;
+    }
+
+    .phone-number {
+        font-size: 1vw; /* Sử dụng em cho font-size */
+    }
+
+
+    .hs_place {
+        width: 10%;
+        /* border: 1px solid; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+    .place-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .location-icon {
+        font-size: 1vw; /* Sử dụng em cho font-size */
+        color: #0074d9;
+    }
+
+    .place-number {
+        font-size: 1vw; /* Sử dụng em cho font-size */
+    }
+
+    .hs_website {
+        width: 10%;
+        /* border: 1px solid; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+    .website-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .website-icon {
+        font-size: 1vw; /* Sử dụng em cho font-size */
+        color: #0074d9;
+    }
+
+    .website-number {
+        font-size: 1vw; /* Sử dụng em cho font-size */
+    }
+
+    #contant_three {
+        position: fixed;
+        z-index: 100;
+    }
+
+    .tow_contant {
+        position: relative;
+        top: 100px;
+        left:200px;
+    }
+
+    #carousel {
+        border: 1px solid;
+        width: 100%;
+        margin-left: 65px;
+        border-radius: 15px;
+        height: 220px;
+        /* border: 1px solid;
+       width: 90%;
+       margin-left: 110px;
+       height: 140px;
+       border-radius: 15px;
+      
+       margin-top: -40px; */
+    }
+
+    #name_shop {
+        text-align: center;
+        margin-top:170px;
+        margin-left:40px;
+        display:none;
+    }
+
+        #name_shop > h3 {
+            margin-left: 0;
+            font-family: Muli, sans-serif;
+            color: #fff;
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px -1px 0 black, 1px 1px 0 black;
+        }
+
+        #name_shop > h2 {
+            letter-spacing: 1.8px;
+        }
+
+    #pr {
+        width: 620px;
+        height: 1080px;
+        border: 1px solid;
+        position: relative;
+        top: 140px;
+        margin-left: 110px;
+        background-color: white;
+    }
+
+    .fw_contant {
+        width: 190px;
+        height: 310px;
+        margin-left: 10px;
+
+        margin-top:20px;
+        float: left;
+    }
+
+    .fw_head {
+       
+        height: 230px;
+        width: 190px;
+    }
+
+        .fw_head img {
+            border: 1px solid;
+            border-radius: 10px;
+            width: 190px;
+            height: 230px;
+            /* padding-top: 20px;
+            padding-left: 20px;*/
+        }
+
+    .bi-heart {
+        color: red;
+        font-size: 27px;
+        line-height: 30px;
+        position: relative;
+        float: right;
+        padding: 5px;
+        right: 2.5px;
+        top: -228px;
+        z-index:11;
+    }
+
+    .bi-heart-fill {
+       
+        font-size: 24px;
+        position: relative;
+        color: white;
+        left: 157px;
+        transition: color 0.3s ease;
+        top: -226px;
+        z-index:12;
+    }
+
+        .bi-heart-fill.clicked {
+            color: red; /* Màu khi được nhấp vào */
+        }
+   
+    .fw_foot {
+        border-radius: 20px;
+        height: 130px;
+        width: 190px;
+        margin-top: -45px;
+        margin-left: 0px;
+        z-index: 10;
+        position: relative;
+        background-color: rgb(14, 59, 74, 1);
+    }
+
+    .fw_foot_name {
+        font-weight: bold;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        background-color: white;
+        border: 1px solid;
+        position: relative;
+        font-size: 15px;
+        top: 10px;
+        text-align: center;
+        height: 30px;
+        line-height: 25px;
+        width: 85%;
+        border-radius: 10px;
+        color: rgb(14, 59, 74, 1);
+        margin: auto;
+    }
+
+    .fw_foot_info {
+        margin-top: 15px;
+        flex-direction: column;
+        margin-left: -15px;
+        width: 100%;
+    }
+
+    .bi-check-circle-fill {
+        color: white;
+        font-size: 15px;
+    }
+
+    .fw_foot_info li {
+        width: 100%;
+        list-style-type: none;
+    }
+
+        .fw_foot_info li span {
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 15px;
+            width: 100%;
+        }
+
+    .bi-star-fill {
+        color: yellow;
+        font-size: 17px;
+    }
+
+    .bi-cart-plus-fill {
+        float: right;
+        /*padding-right: 5px;*/
+        font-size: 25px;
+        line-height: 20px;
+        color: white;
+       
+    }
+
+    .giam_info {
+        font-size: 14px;
+        font-style: normal;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(232, 111, 111);
+    }
+    /* footer first */
+    #footer_first {
+        height: 150px;
+       /* border: 1px solid;*/
+        margin-left: 110px;
+        display: flex;
+        background-color: white;
+        margin-top: 140px;
+        clear: both;
+        width:350px;
+    }
+
+    .tienich {
+        top: -25px;
+        height: 120px;
+        width: 400px;
+        border: 1px solid rgb(14, 59, 74, 1);
+        margin-top: 40px;
+        border-radius: 5px;
+        position: relative;
+    }
+
+        .tienich:last-child {
+            display: none;
+        }
+
+        .tienich:hover {
+            height: 120px;
+            width: 350px;
+            border: 1px solid blueviolet;
+            margin-top: 40px;
+            border-radius: 5px;
+        }
+
+        .tienich table {
+            height: 120px;
+            width:310px;
+        }
+
+    .ti_1 {
+        width: 40%;
+        text-align: center;
+        justify-content: center;
+    }
+
+        .ti_1 div {
+            width: 72px;
+            height: 72px;
+            line-height: 72px;
+            border: 1px solid rgb(14, 59, 74, 1);
+            border-radius: 50px;
+        }
+
+            .ti_1 div:hover {
+                width: 72px;
+                height: 72px;
+                line-height: 72px;
+                border: 1px solid blueviolet;
+                border-radius: 50px;
+            }
+
+            .ti_1 div i {
+                font-size: 50px;
+                color: rgb(14, 59, 74, 1);
+            }
+
+                .ti_1 div i:hover {
+                    color: blueviolet;
+                }
+
+    .ti_2 {
+        width: 60%;
+    }
+
+        .ti_2 ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+            .ti_2 ul li:first-child {
+                font-size: 25px;
+                font-weight: 500;
+                color: rgb(14, 59, 74, 1);
+            }
+
+                .ti_2 ul li:first-child:hover {
+                    color: cornflowerblue
+                }
+
+            .ti_2 ul li {
+                color: rgb(14, 59, 74, 1);
+            }
+
+                .ti_2 ul li:hover {
+                    color: brown;
+                }
+
+    .pagination {
+        position: fixed;
+        bottom: 10px; /* Điều chỉnh khoảng cách từ dưới trang */
+        left: 50%; /* Đặt giữa theo chiều ngang */
+        transform: translateX(-50%); /* Dịch chuyển lùi 50% theo chiều ngang để căn giữa */
+        display: flex;
+        gap: 5px; /* Khoảng cách giữa các phần tử bên trong flex container */
+    }
+
+        /* Thêm CSS cho phần tử trong class "pagination" nếu cần */
+        .pagination a {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .pagination a.current {
+                background-color: #0056b3;
+            }
+
+    .phantrang {
+        margin-top: 1000px;
+        height: 40px;
+    }
+
+    .ulphantrang {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+        .ulphantrang > li {
+            margin-left: 1px;
+            height: 30px;
+            width: 20px;
+            border-radius: 3px;
+            line-height: 30px;
+            border: 1px solid #9da6b1;
+        }
+
+            .ulphantrang > li > a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .ulphantrang > li:hover {
+                background-color: #d8d2d2;
+            }
+
+            .ulphantrang > li.active {
+                background-color: #00f; /* Màu nền xanh khi mục li được kích hoạt */
+                color: #fff; /* Màu chữ trắng khi mục li được kích hoạt */
+            }
+    /* end media max 768 */
+}
+@media (min-width: 769px)
+{
+   
+   #khung
+   {
+       z-index: 10;
+       background-color: #c5c5c5;
+   }
+   * {
+       margin: 0;
+       padding: 0;
+       outline: none;
+       border: none;
+       text-decoration: none;
+       box-sizing: border-box;
+       font-family: "Poppins", sans-serif;
+       margin: 0px auto;
+   }
+   body {
+       background-color:#8e8a8a;
+   }
+   nav {
+       position: fixed;
+       z-index: 1000;
+       top: 0;
+       left: 0;
+       background-color: #eee;
+       width: 100%;
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+       padding: 10px;
+       box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+   }
+   .logo {
+       text-align: center;
+       display: flex;
+       align-items: center;
+   }
+   .logo > img {
+       width: 45px;
+       height: 45px;
+       border-radius: 50%;
+   }
+   .logo > span {
+       font-weight: bold;
+       padding-left: 15px;
+       font-size: 18px;
+       text-transform: uppercase;
+   }
+   ul {
+       list-style: none;
+       display: flex;
+       align-items: center;
+   }
+   ul li {
+       margin: 0 10px;
+   }
+   .fas {
+       color: blueviolet;
+       font-size: 20px;
+   }
+   ul li a {
+       color: rgb(85, 83, 83);
+       text-decoration: none;
+   }
+   a:hover {
+       background: #eee;
+   }
+   /* search second header */
+   #cach_dong
+   {
+       height: 80px;
+       
+   }
+    #head_search {
+        flex: 1;
+        margin: 0px auto;
+        border: 1px solid #eee;
+        height: 70px;
+        width: 85%;
+        display: flex;
+        /* background-color: white;*/
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        position: relative;
+    }
+ 
+   .hs_logo
+   {
+       width: 20%;
+      
+       /* border: 1px solid; */
+      
+       text-align: center;
+       display: flex;
+       align-items: center; /* Để ảnh nằm giữa theo chiều dọc */
+       justify-content: center;
+
+   }
+  
+   .logo_image {
+       max-height: 90%;
+       height: 170px;
+       margin: 0; /* Xóa margin của hình ảnh */
+       padding: 0; /* Xóa padding của hình ảnh */
+   }
+
+   .logo_text {
+       margin: 0; /* Xóa margin của văn bản */
+       padding: 0; /* Xóa padding của văn bản */
+   }
+   .hs_search
+   {
+       width: 35%;
+   /*background-color:white;*/
+     
+       display: flex;
+       align-items: center; /* Để ảnh nằm giữa theo chiều dọc */
+       justify-content: center;
+   }
+   .search-form {
+       display: flex;
+       align-items: center;
+       width: 80%;
+   }
+
+   .search-input {
+       padding: 10px;
+       border: 1px solid #ccc;
+       
+       border-radius: 5px;
+       flex-grow: 1;
+   }
+
+   .search-button {
+       background-color: #0074d9;
+       color: #fff;
+       padding: 10px 20px;
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+       flex-shrink: 0;
+   }
+
+   .search-icon {
+       font-size: 20px;
+   }
+   .hs_phone {
+   width: 15%;
+   /* border: 1px solid; */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   }
+
+   .phone-content {
+       display: flex;
+       flex-direction: column;
+   
+   
+       
+   }
+
+   .phone-icon {
+       
+       font-size: 1vw; /* Sử dụng em cho font-size */
+       color: #0074d9;
+       
+   }
+
+   .phone-number {
+       font-size: 1vw; /* Sử dụng em cho font-size */
+       
+   }
+
+
+   .hs_place
+   {
+       width: 15%;
+      
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+   .place-content {
+       display: flex;
+       flex-direction: column;
+   
+   
+       
+   }
+
+   .location-icon {
+       
+       font-size: 1vw; /* Sử dụng em cho font-size */
+       color: #0074d9;
+       
+   }
+
+   .place-number {
+       font-size: 1vw; /* Sử dụng em cho font-size */
+       
+   }
+
+   .hs_website
+   {
+       width: 15%;
+       
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+   .website-content {
+       display: flex;
+       flex-direction: column;
+   
+   
+       
+   }
+
+   .website-icon {
+       
+       font-size: 1vw; /* Sử dụng em cho font-size */
+       color: #0074d9;
+       
+   }
+
+   .website-number {
+       font-size: 1vw; /* Sử dụng em cho font-size */
+       
+   }
+
+    #contant_three {
+        background-color: white;
+        position: fixed;
+        /* Giữ phần tử trên cùng của trình duyệt */
+        left: 0;
+        width: 100%;
+        /* Đặt màu nền tùy chọn */
+        z-index: 999;
+    }
+
+
+    .tow_contant {
+        background-color: white;
+        margin-top: 0px;
+    }
+
+   #carousel
+   {
+       
+     
+      width: 100%;
+      height: 350px;    
+   }
+    
+    .contant_tb {
+        width: 100%;
+        height: 100%;
+    }
+    #name_shop >h2
+   {
+       letter-spacing: 1.8px;
+       font-size: 30px;
+       font-weight: bold;
+   } 
+   #pr
+   {
+       
+       width: 1060px;
+       height: 800px;
+       border: 1px solid blueviolet;
+       border-bottom-left-radius:30px;
+       border-bottom-right-radius:30px;
+       background-color: white;
+
+       
+   }
+   .fw_contant
+   {
+      
+       width: 230px;
+       height:340px;
+       margin-left:25px;
+       margin-top:30px;
+       float: left;
+       
+   }
+   .fw_head
+   {
+       
+       border-radius: 10px;
+       height: 232px;
+       width: 230px;
+   }
+   .fw_head img
+   {
+       width: 230px;
+       border-radius: 10px;
+       
+   }
+   .fw_head img:hover
+   {
+       position: relative;
+       bottom: 10px;
+       transition: all 0.2s ease-in-out;
+   }
+   .bi-heart
+   {
+       color: red;
+       font-size: 31px;
+       line-height: 30px;
+       position: relative;
+       float: right;
+       padding: 5px;
+       right: 3px;
+       top: -225px;
+      
+   }
+   .bi-heart-fill
+   {
+      z-index: 2;
+       font-size: 28px;
+       position: relative;
+       color:white;
+       left: 192.5px;
+       transition: color 0.3s ease;
+       top: -224.5px;
+   }
+   .bi-heart-fill.clicked 
+   {
+       color: red; /* Màu khi được nhấp vào */
+   }
+   .fw_foot
+   {
+       position: relative;
+       border-radius: 20px;
+       height: 140px;
+       width: 220px;
+       top: -35px;
+       background-color: rgb(14, 59, 74, 1);
+     
+   }
+   .fw_foot_name
+   {
+       font-weight: bold;
+       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+       background-color: white;
+       border: 1px solid;
+       position: relative;
+       top: 10px;
+       text-align: center;
+       height: 35px;
+       line-height: 30px;
+       width: 85%;
+       border-radius: 10px;
+       color: rgb(14, 59, 74, 1);
+   }
+   .fw_foot_name:hover
+   {
+       color: white;
+       background-color: darkorchid;
+       border-color: chartreuse;
+   }
+   .fw_foot_info
+   {
+       flex-direction: column;
+       margin-left: -15px;
+       width: 100%;
+       
+   }
+   .bi-check-circle-fill
+   {
+       color: white;
+       font-size: 20px;
+       
+   }
+   .fw_foot_info li
+   {
+       width: 100%;
+   }
+   .fw_foot_info li span
+   {
+       color: white;
+       font-weight: bold;
+       font-style: italic;
+       font-size: 20px;
+       width: 100%;
+       
+   }
+   
+   .bi-star-fill
+   {
+       color: yellow;
+       font-size: 20px;
+   }
+   .bi-cart-plus-fill
+   {
+       float: right;
+       padding-right: 5px;
+       font-size: 30px;
+       line-height: 30px;
+       color: white;
+       
+   }
+   
+   .giam_info
+   {
+       font-size: 16px;
+       font-style: normal;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+       color: rgb(232, 111, 111);
+   }
+
+   /* footer-first */
+   #footer_first
+   {
+       height: 200px;
+       border: 1px solid;
+       margin: auto;
+       display: flex;
+       background-color:white;
+       margin-top:50px;
+   }
+   .tienich
+   {
+       height: 120px;
+       width: 30%;
+       border: 1px solid rgb(14, 59, 74, 1);
+       margin-top: 40px;
+       border-radius: 5px;
+       
+   }
+   .tienich:hover
+   {
+       height: 120px;
+       width: 30%;
+       border: 1px solid blueviolet; 
+       margin-top: 40px;
+       border-radius: 5px;
+   }
+   .tienich table
+   {
+       height: 120px;
+       width: 100%;
+   }
+   .ti_1
+   {
+      
+       width: 35%;
+       text-align: center;
+       justify-content: center;
+   }
+   .ti_1 div
+   {
+       width: 72px;
+       height: 72px;
+       line-height: 72px;
+       border: 1px solid rgb(14, 59, 74, 1);
+       border-radius: 50px;
+      
+   }
+   .ti_1 div:hover
+   {
+       width: 72px;
+       height: 72px;
+       line-height: 72px;
+       border: 1px solid blueviolet;
+       border-radius: 50px;
+      
+   }
+   .ti_1 div i
+   {
+       font-size: 50px;
+       color: rgb(14, 59, 74, 1);
+   }
+   .ti_1 div i:hover
+   {
+       color: blueviolet;
+   }
+   .ti_2
+   {
+       width: 65%;
+      
+       
+   }
+   .ti_2 ul
+   {
+       
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+       
+       flex-wrap: wrap;
+       
+       
+   }
+   .ti_2 ul li:first-child
+   {
+       font-size: 25px;
+       font-weight: 500;
+       color: rgb(14, 59, 74, 1);
+      
+   }
+   .ti_2 ul li:first-child:hover
+   {
+       color:cornflowerblue
+   }
+   .ti_2 ul li
+   {
+       color: rgb(14, 59, 74, 1);
+       
+   }
+   .ti_2 ul li:hover
+   {
+       color: brown;
+   }
+   .pagination {
+       position: fixed;
+       bottom: 10px; /* Điều chỉnh khoảng cách từ dưới trang */
+       left: 50%; /* Đặt giữa theo chiều ngang */
+       transform: translateX(-50%); /* Dịch chuyển lùi 50% theo chiều ngang để căn giữa */
+       display: flex;
+       gap: 5px; /* Khoảng cách giữa các phần tử bên trong flex container */
+   }
+
+   /* Thêm CSS cho phần tử trong class "pagination" nếu cần */
+   .pagination a {
+       padding: 5px 10px;
+       background-color: #007bff;
+       color: #fff;
+       text-decoration: none;
+       border-radius: 5px;
+   }
+
+   .pagination a.current {
+       background-color: #0056b3;
+   }
+   .phantrang
+   {
+        margin-top: 720px;
+        height: 40px;
+       
+        
+        
+   }
+   .ulphantrang
+   {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+   }
+   .ulphantrang >li
+   {
+        margin-left: 0;
+        height: 30px;
+        width: 20px;
+        border-radius: 3px;
+        line-height: 30px;
+        border: 1px solid #9da6b1;
+        
+
+   }
+   .ulphantrang >li >a
+   {
+        text-decoration: none;
+        color: black;
+   }
+   .ulphantrang >li:hover
+   {
+        background-color: #d8d2d2;
+   }
+   .ulphantrang > li.active {
+        background-color: #00f; /* Màu nền xanh khi mục li được kích hoạt */
+        color: #fff; /* Màu chữ trắng khi mục li được kích hoạt */
+    }
+   /* end media min 769 */
+}
+@media (max-width: 560px) {
+    #khung {
+        width: 350px;
+        margin-left: 15px;
+    }
+  
+    nav {
+        width: 125px;
+        height: 850px;
+        position: fixed;
+        z-index: 101;
+        left: -30px;
+    }
+
+        nav:hover {
+            width: 200px;
+            transition: all 0.5s ease;
+        }
+
+        nav ul li {
+            list-style-type: none;
+        }
+
+            nav ul li a {
+                text-decoration: none;
+                position: relative;
+                color: rgb(85, 83, 83);
+                font-size: 12px;
+                display: table;
+                width: 300px;
+                padding: 10px;
+                position: relative;
+            }
+
+                nav ul li a span {
+                    position: relative;
+                    left: -25px;
+                }
+
+    .hs_logo {
+        display: none;
+    }
+
+    #contant_three {
+        text-align: center;
+        justify-content: center;
+    }
+    #head_search {
+        flex: 1;
+        margin: 0px auto;
+        z-index: 1000;
+        height: 100px;
+        width: 400px;
+        display: flex;
+        margin-left: 80px;
+    }
+
+    .hs_search {
+        flex: 1;
+        width: 80%;
+        height: 70px;
+        background-color:white;
+      /*  border-radius: 10px;*/
+        padding: 0;
+    }
+
+    .search-form {
+        width: 60%;
+    }
+
+    .tow_contant {
+        margin-left: -2.5px;
+    }
+
+    #carousel {
+        width: 400px;
+        margin: auto;
+        height: 220px;
+      
+        margin-left: 80px;
+        position: relative;
+      /*  top: -40px;*/
+    }
+
+    #name_shop {
+        text-align: center;
+        margin-top: 20px;
+        width: 400px;
+        height: 100px;
+        text-align: center;
+        justify-content: center;
+        margin-left: 80px;
+        position: relative;
+        top: -60px;
+    }
+
+        #name_shop > h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            font-family: Muli, sans-serif;
+            margin: auto;
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px -1px 0 black, 1px 1px 0 black;
+        }
+
+        #name_shop > h2 {
+            letter-spacing: 1.8px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+    #pr {
+        width: 400px;
+        /*border: 1px solid;*/
+        margin-left: 80px;
+        height: 1250px;
+        margin-top: -300px;
+        background-color: white;
+        position: relative;
+        padding-top: 10px;
+        top: 340px;
+    }
+    .fw_contant {
+        width: 170px;
+        height: 300px;
+        margin-left: 15px;
+        margin-bottom: -20px;
+        float: left;
+    }
+
+    .fw_head {
+        height: 200px;
+        width: 170px;
+    }
+
+        .fw_head img {
+            border: 1px solid;
+            border-radius: 10px;
+            width: 170px;
+            height: 200px;
+            /* padding-top: 20px;
+            padding-left: 20px;*/
+        }
+
+
+    .bi-heart {
+        color: red;
+        font-size: 25px;
+        line-height: 30px;
+        position: relative;
+        float: right;
+        padding: 5px;
+        top: -198px;
+        right: 3px;
+    }
+
+    .bi-heart-fill {
+        z-index: 12;
+        font-size: 23px;
+        position: relative;
+        color: white;
+        right: 0.8px;
+        transition: color 0.3s ease;
+        top: -195px;
+        left: 138px;
+    }
+
+        .bi-heart-fill.clicked {
+            color: red; /* Màu khi được nhấp vào */
+        }
+
+    .fw_foot {
+        border-radius: 20px;
+        height: 100px;
+        width: 170px;
+        margin-top: -30px;
+        background-color: rgb(14, 59, 74, 1);
+        position: relative;
+        left: 0px;
+    }
+
+    .fw_foot_name {
+        font-weight: bold;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        background-color: white;
+        border: 1px solid;
+        position: relative;
+        top: 5px;
+        margin: auto;
+        text-align: center;
+        height: 25px;
+        line-height: 20px;
+        width: 85%;
+        border-radius: 10px;
+        color: rgb(14, 59, 74, 1);
+        font-size: 13px;
+    }
+
+    .fw_foot_info {
+        margin-top: 15px;
+        flex-direction: column;
+        margin-left: -15px;
+        width: 100%;
+    }
+
+    .bi-check-circle-fill {
+        color: white;
+        font-size: 14px;
+    }
+
+    .fw_foot_info li {
+        width: 100%;
+        list-style-type: none;
+    }
+
+        .fw_foot_info li span {
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        .fw_foot_info li:last-child {
+            display: none;
+        }
+
+    .bi-star-fill {
+        color: yellow;
+        font-size: 13px;
+    }
+
+    .bi-cart-plus-fill {
+        float: right;
+        /*padding-right: 5px;*/
+        font-size: 23px;
+        line-height: 30px;
+        color: white;
+    }
+
+    .giam_info {
+        font-size: 12px;
+        font-style: normal;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(232, 111, 111);
+    }
+
+    /* footer first */
+    #footer_first {
+        width: 400px;
+        height: 150px;
+        border: 1px solid;
+        margin-left: 80px;
+        background-color: white;
+        margin-top: 340px;
+        display: inline-block;
+    }
+
+    .tienich {
+        top: -25px;
+        height: 120px;
+        width: 370px;
+        border: 1px solid rgb(14, 59, 74, 1);
+        display: none;
+        left: 12px;
+        border-radius: 5px;
+        position: relative;
+    }
+
+        .tienich:first-child {
+            display: block;
+        }
+
+        .tienich:hover {
+            height: 120px;
+            width: 370px;
+            border: 1px solid blueviolet;
+            margin-top: 40px;
+            border-radius: 5px;
+        }
+
+        .tienich table {
+            height: 120px;
+            width: 100%;
+        }
+
+    .ti_1 {
+        width: 35%;
+        text-align: center;
+        justify-content: center;
+    }
+
+        .ti_1 div {
+            width: 72px;
+            height: 72px;
+            line-height: 72px;
+            border: 1px solid rgb(14, 59, 74, 1);
+            border-radius: 50px;
+        }
+
+            .ti_1 div:hover {
+                width: 72px;
+                height: 72px;
+                line-height: 72px;
+                border: 1px solid blueviolet;
+                border-radius: 50px;
+            }
+
+            .ti_1 div i {
+                font-size: 50px;
+                color: rgb(14, 59, 74, 1);
+            }
+
+                .ti_1 div i:hover {
+                    color: blueviolet;
+                }
+
+    .ti_2 {
+        width: 65%;
+    }
+
+        .ti_2 ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+            .ti_2 ul li:first-child {
+                font-size: 25px;
+                font-weight: 500;
+                color: rgb(14, 59, 74, 1);
+            }
+
+                .ti_2 ul li:first-child:hover {
+                    color: cornflowerblue
+                }
+
+            .ti_2 ul li {
+                color: rgb(14, 59, 74, 1);
+            }
+
+                .ti_2 ul li:hover {
+                    color: brown;
+                }
+
+    .pagination {
+        position: fixed;
+        bottom: 10px; /* Điều chỉnh khoảng cách từ dưới trang */
+        left: 50%; /* Đặt giữa theo chiều ngang */
+        transform: translateX(-50%); /* Dịch chuyển lùi 50% theo chiều ngang để căn giữa */
+        display: flex;
+        gap: 5px; /* Khoảng cách giữa các phần tử bên trong flex container */
+    }
+
+        /* Thêm CSS cho phần tử trong class "pagination" nếu cần */
+        .pagination a {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .pagination a.current {
+                background-color: #0056b3;
+            }
+
+    .phantrang {
+        margin-top: 1150px;
+        height: 40px;
+    }
+
+    .ulphantrang {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+        .ulphantrang > li {
+            margin-left: 1px;
+            height: 30px;
+            width: 20px;
+            border-radius: 3px;
+            line-height: 30px;
+            border: 1px solid #9da6b1;
+        }
+
+            .ulphantrang > li > a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .ulphantrang > li:hover {
+                background-color: #d8d2d2;
+            }
+
+            .ulphantrang > li.active {
+                background-color: #00f; /* Màu nền xanh khi mục li được kích hoạt */
+                color: #fff; /* Màu chữ trắng khi mục li được kích hoạt */
+            }
+}
+

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ShopBanHoa.Models.Hoa>
+
+@foreach (var item in Model)
+{
+    <div class="fw_contant">
+        <div class="fw_head">
+            <img src="../../Content/Anh/@item.AnhHoa">
+            <i class="bi bi-heart-fill"></i>
+            <i class="bi bi-heart"></i>
+        </div>
+        <div class="fw_foot">
+            <p class="fw_foot_name">@item.TenHoa</p>
+            <ul class="fw_foot_info">
+                <li><i class="bi bi-check-circle-fill"></i><span>&nbsp;&nbsp;&nbsp;@item.GiaBan</span></li>
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>&nbsp; &nbsp; &nbsp;
+                    <a style="text-decoration:none" href="@Url.Action("ChiTietSanPham", "Home", new {masp=@item.MaHoa })"><b style="color:yellow">Chi Tiết</b></a>
+                    <a style="text-decoration:none" href="javascript:void(0);" onclick="themVaoGioHang(@item.MaHoa)">
+                        <i class="bi bi-cart-plus-fill"></i>
+                    </a>
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i><span>&nbsp;&nbsp;&nbsp;<b class="giam_info">Khuyến mãi: @item.KhuyenMai</b></span></li>
+            </ul>
+        </div>
+    </div>
+}
+
+@{
+    int PrevPage = ViewBag.Page - 1;
+    if (PrevPage <= 0)
+    {
+        PrevPage = 1;
+    }
+    int NextPage = ViewBag.Page + 1;
+    if (NextPage > ViewBag.NoOfPages)
+    {
+        NextPage = ViewBag.NoOfPages;
+    }
+}
+<div class="phantrang"></div>
+<ul class="ulphantrang">
+    @if (PrevPage > 0)
+    {
+        <li>
+            <a href="@Url.Action("TrangChu", "Home", new { page=@PrevPage})"><<</a>
+        </li>
+    }
+
+    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+    {
+        if (i + 1 == ViewBag.Page)
+        {
+            <li>
+                <a href="@Url.Action("TrangChu", "Home", new { page=@i+1})">@(i + 1)</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("TrangChu", "Home", new { page=@i+1})">@(i + 1)</a>
+            </li>
+        }
+    }
+
+    @if (NextPage <= ViewBag.NoOfPages)
+    {
+        <li>
+            <a href="@Url.Action("TrangChu", "Home", new { page=@NextPage})">>></a>
+        </li>
+    }
+</ul>

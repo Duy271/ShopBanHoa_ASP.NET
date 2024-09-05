@@ -1,0 +1,155 @@
+﻿@model ShopBanHoa.Models.DangKyC
+@{
+    Layout = null;
+    var tb = @ViewBag.tbdangnhap;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link href="../../Content/CSS/Form.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="DangKyF" method="post">
+                <h1>Đăng Ký</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or user your email for registeration</span>
+                <input type="text" placeholder="Tài Khoản" name="TaiKhoanC" oninput="validateUsername()">
+                <span id="username-error" style="color:red"></span>
+                <input type="password" placeholder="Mật Khẩu" name="MatKhauC" oninput="validatePassword()">
+                <span id="password-error" style="color:red"></span>
+                <input type="password" placeholder="Xác Nhận Mật Khẩu" name="XacNhanMatKhau" oninput="validateConfirmPassword()">
+                <span id="confirm-password-error" style="color:red"></span>
+
+                <button>Đăng Ký</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in">
+            <form action="/Form/DangNhap" method="post">
+                <h1>Đăng Nhập</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or user your email password</span>
+                <input type="text" placeholder="Tài Khoản" name="taikhoan">
+                <input type="password" placeholder="Mật Khẩu" name="matkhau">
+                <a href="#">Forget Your PassWord?</a>
+                <span>@tb</span>
+                <button>Đăng Nhập</button>
+            </form>
+        </div>
+
+
+
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Đăng Nhập</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friends!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Đăng Ký</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var registerBtn = document.getElementById('register');
+        var loginBtn = document.getElementById('login');
+
+        registerBtn.onclick = function () {
+            container.classList.add("active");
+        };
+
+        loginBtn.onclick = function () {
+            container.classList.remove("active");
+        };
+
+
+
+    </script>
+    <script>
+        function validateUsername() {
+            var usernameInput = document.getElementsByName('TaiKhoanC')[0];
+            var username = usernameInput.value;
+            var usernameErrorSpan = document.getElementById('username-error');
+            usernameErrorSpan.innerHTML = username.length < 6 ? 'Tài khoản phải có ít nhất 6 ký tự.' : '';
+        }
+
+        function validatePassword() {
+            var passwordInput = document.getElementsByName('MatKhauC')[0];
+            var password = passwordInput.value;
+            var passwordErrorSpan = document.getElementById('password-error');
+            passwordErrorSpan.innerHTML = password.length < 6 ? 'Mật khẩu phải có ít nhất 6 ký tự.' : '';
+        }
+
+        function validateConfirmPassword() {
+            var passwordInput = document.getElementsByName('MatKhauC')[0];
+            var confirmPasswordInput = document.getElementsByName('XacNhanMatKhau')[0];
+            var confirmPassword = confirmPasswordInput.value;
+            var confirmPasswordErrorSpan = document.getElementById('confirm-password-error');
+            var password = passwordInput.value;
+            confirmPasswordErrorSpan.innerHTML = password !== confirmPassword ? 'Xác nhận mật khẩu không khớp.' : '';
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function submitForm() {
+            var taikhoan = $("input[name='taikhoan']").val();
+            var matkhau = $("input[name='matkhau']").val();
+
+            $.ajax({
+                type: "POST",
+                url: "Form/DangNhap",
+                data: { taikhoan: taikhoan, matkhau: matkhau },
+                success: function (data) {
+                    // Kiểm tra dữ liệu phản hồi và chuyển hướng hoặc hiển thị thông báo lỗi tương ứng
+                    if (data.success) {
+                        // Chuyển hướng đến trang phù hợp
+                        window.location.href = data.redirectUrl;
+                    } else {
+                        // Hiển thị thông báo lỗi
+                        alert(data.errorMessage);
+                    }
+                },
+                error: function () {
+                    // Xử lý lỗi
+                    alert("Đã xảy ra lỗi khi xử lý yêu cầu của bạn.");
+                }
+            });
+        }
+    </script>
+
+
+
+
+</body>
+</html>
+

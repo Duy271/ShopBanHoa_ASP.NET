@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ShopBanHoa.Models.ChiTietDonDatHang>
+
+@{
+    ViewBag.Title = "AD_XemChiTietDonHang";
+    Layout = "~/Views/Layout/Layout_Admin.cshtml";
+  var hoa = ViewBag.hoa;
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên Hoa</th>
+                <th scope="col">Ảnh Hoa</th>
+                <th scope="col">Số Lượng</th>
+                <th scope="col">Đơn Giá</th>
+                <th scope="col">Tổng Tiền</th>
+                <th scope="col">Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int t = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@t</td>
+                        @foreach(var h in hoa)
+                        {
+                            if(@item.MaHoa==@h.MaHoa)
+                            {
+                                <td>@h.TenHoa</td>
+                                <td><img style="height:40px" src="../../Content/Anh/@h.AnhHoa" /></td>
+                            }
+                        }
+
+                        
+                        <td>@item.SoLuong</td>
+                        <td>@item.GiaBanLe</td> <!-- Định dạng tiền tệ -->
+                        <td>@item.TongTien</td>
+                        <!-- Trong vòng lặp foreach của bạn -->
+                        <td><a href="#" class="delete-btn" data-ma="@item.MaChiTietDonHang"><i class="bi bi-trash3"></i></a></td>
+
+                    </tr>
+                    t++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Bắt sự kiện click cho nút Xóa
+        $(".delete-btn").on("click", function (e) {
+            e.preventDefault();
+
+            // Lấy mã chi tiết đơn hàng từ thuộc tính data
+            var maChiTietDonHang = $(this).data("ma");
+
+            // Gửi yêu cầu AJAX
+            $.ajax({
+                type: "POST",
+                url: "/AD_Home/AD_XoaChiTietDonHang", // Đặt tên đúng cho đường dẫn của bạn
+                data: { ma: maChiTietDonHang },
+                success: function (result) {
+                    // Xử lý kết quả trả về từ controller
+                    if (result.success) {
+                        // Nếu xóa thành công, có thể làm mới hoặc cập nhật giao diện
+                        alert(result.message);
+                        window.location.reload(); 
+                    } else {
+                        alert(result.message);
+                    }
+                },
+                error: function () {
+                    // Xử lý lỗi
+                    alert("Đã xảy ra lỗi trong quá trình xóa.");
+                }
+            });
+        });
+    });
+</script>

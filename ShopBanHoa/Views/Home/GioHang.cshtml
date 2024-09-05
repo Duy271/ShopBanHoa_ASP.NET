@@ -1,0 +1,141 @@
+﻿@model IEnumerable<ShopBanHoa.Models.View_GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    <link href="../../Content/CSS/GioHang.css" rel="stylesheet" />
+   
+} 
+
+<div style="text-align:center">
+    <table>
+        <tr>
+            <td><a style="text-decoration:none;background-color:blue;color:white;margin-right:50px" href="@Url.Action("GioHang","Home")">Vào Giỏ Hàng</a></td>
+            <td><a style="text-decoration:none;background-color:blue;color:white;margin-right:10px" href="@Url.Action("TrangChu","Home")">Home</a></td>
+        </tr>
+    </table>
+</div>
+<div class="modal-body">
+    <div class="cart-row">
+        <span class="cart-item cart-header cart-column"><input type="checkbox" class="accountCheckbox" name="selectedAccounts" id="checkall" value="" /></span>
+       
+        <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+        <span class="cart-price cart-header cart-column">Giá</span>
+        <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+    </div>
+    <div class="cart-items">
+        @foreach (var item in Model)
+        {
+            <div class="cart-row">
+                <div class="cart-item cart-column">
+                    <input type="checkbox" class="accountCheckbox" name="selectedAccounts" value="@item.MaGioHang" />
+                </div>
+                <div class="cart-item cart-column">
+                    <img class="cart-item-image" src="../../Content/Anh/@item.AnhHoa" width="100" height="100">
+                    <span class="cart-item-title">@item.TenHoa</span>
+                </div>
+                <span class="cart-price cart-column">@item.DonGia</span>
+                <div class="cart-quantity cart-column">
+                    <input class="cart-quantity-input" type="number" value="@item.SoLuong">
+                    <form action="XoaHoaTrongGio" method="post">
+                        <input name="ma" type="hidden" value="@item.MaGioHang" />
+                        <button class="btn btn-danger xoa-sanpham" id="xoa-1" type="submit">Xóa</button>
+                    </form>
+                    
+                </div>
+            </div>
+        }
+        <div style="text-align:center;margin-top:20px">
+            <button id="xoa-het" class="btn btn-danger xoa-sanpham" type="button">Xóa Hết</button>
+            <button id="dat-hang" class="btn btn-danger xoa-sanpham" type="button">Đặt Hàng</button>
+        </div>
+        
+            
+            
+       
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Tổng Cộng:</strong>
+            <span class="cart-total-price">
+                @{
+    decimal totalPrice = Model.Sum(item => item.SoLuong * item.DonGia);
+                    @totalPrice
+                }
+            </span>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#checkall").change(function () {
+            if (this.checked) {
+                $(".accountCheckbox").prop("checked", true);
+            } else {
+                $(".accountCheckbox").prop("checked", false);
+            }
+        });
+
+        $("#xoa-het").click(function () {
+            var selectedAccounts = [];
+            $(".cart-items input.accountCheckbox:checked").each(function () {
+                selectedAccounts.push($(this).val());
+            });
+
+            if (selectedAccounts.length > 0) {
+                if (confirm("Bạn có chắc chắn muốn xóa những sản phẩm đã chọn không?")) {
+                    var deleteAll = true;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Home/DeleteSelected",
+                        data: { selectedAccounts: selectedAccounts, deleteAll: deleteAll },
+                        traditional: true,
+                        success: function (result) {
+                            window.location.href = "TrangChu";
+                        },
+                        error: function (error) {
+                            console.log("Lỗi xóa: ", error);
+                        }
+                    });
+                }
+            } else {
+                alert("Vui lòng chọn ít nhất một sản phẩm để xóa.");
+            }
+        });
+    });
+ 
+</script>
+<script>
+    $(document).ready(function () {
+        $("#dat-hang").click(function () {
+            var selectedProducts = [];
+            $(".cart-items input.accountCheckbox:checked").each(function () {
+                selectedProducts.push($(this).val());
+            });
+
+            if (selectedProducts.length > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/DatHangVaXoaGioHang",
+                    data: { selectedProducts: selectedProducts },
+                    traditional: true,
+                    success: function (result) {
+                        if (result.success) {
+                            // Đặt hàng thành công, cập nhật giao diện hoặc chuyển hướng trang
+                            alert("Đặt hàng thành công!");
+                            //window.location.reload(); // Cập nhật trang
+                            window.location.href = "/Home/ThongTinDatHang";
+                        } else {
+                            console.log("Lỗi đặt hàng: ", result.message);
+                            // Xử lý lỗi nếu cần thiết
+                        }
+                    },
+                    error: function (error) {
+                        console.log("Lỗi đặt hàng: ", error);
+                    }
+                });
+            } else {
+                alert("Vui lòng chọn ít nhất một sản phẩm để đặt hàng.");
+            }
+        });
+    });
+</script>

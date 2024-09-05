@@ -1,0 +1,136 @@
+﻿@model IEnumerable<ShopBanHoa.Models.ChiTietDonDatHang>
+
+@{
+    ViewBag.Title = "ThongTinDatHang";
+    Layout = "~/Views/Layout/Layout_KhungPhu.cshtml";
+    var a = @ViewBag.anh1;
+    var b = @ViewBag.anh2;
+    var c = @ViewBag.anh3;
+    var d = @ViewBag.anhm;
+    var ddh = ViewBag.DoDatHang;
+    var anh=ViewBag.lst_a;
+}
+
+    <form id="productForm" action="CapNhatThongTinGiaoHang" method="post" enctype="multipart/form-data">
+
+        <div style="text-align:center" >
+            <h4>Thông Tin Khách Hàng</h4>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Tên Người Nhận</label>
+                <input name="ten"  type="text" aria-label=".form-control-sm example" style="border:1px solid;border-radius:5px;width:30%" value="@ddh.TenKhachHang">
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Địa Chỉ Giao</label>
+                <input name="dc"  type="text" aria-label=".form-control-sm example" style="border: 1px solid; border-radius: 5px; width: 30%" value="@ddh.DiaChiGiaoHang">
+            </div>
+            <div class="col-sm-10" style=" margin:0 auto">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Số Điện Thoại</label>
+                <input name="sdt"  type="text" aria-label=".form-control-sm example" style="border: 1px solid; border-radius: 5px; width: 30%" value="@ddh.SoDienThoai">
+            </div>
+            <button style="margin-top:10px;width:50px;" class=" btn btn-primary">Lưu</button>
+            <p>Cập Nhật Thông Tin Nếu Chưa Đúng</p>
+            <h3>Tổng Tiền: @ViewBag.TongTien</h3>
+        </div>
+
+
+    </form>
+
+
+<div style="margin-left:20%">
+@foreach (var item in Model)
+{
+    <div class="flex-box">
+
+        <div class="left">
+            @foreach (var anhsp in anh)
+            {
+                if (@anhsp.MaHoa == @item.MaHoa)
+                {
+                    <div class="big-img">
+                        <img src="../../Content/Anh/@anhsp.AnhHoa">
+                    </div>
+                }
+            }
+
+            <div class="images">
+                <div class="small-img">
+                    @foreach (var anhsp in anh)
+                    {
+                        if (@anhsp.MaHoa == @item.MaHoa)
+                        {
+                            <img src="../../Content/Anh/@anhsp.AnhHoa" onclick="showImg(this.src)">
+                        }
+                    }
+                </div>
+                <div class="small-img">
+                    <img src="../../Content/Anh/@a.AnhHoa" onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src="../../Content/Anh/@b.AnhHoa" onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src="../../Content/Anh/@c.AnhHoa" onclick="showImg(this.src)">
+                </div>
+            </div>
+        </div>
+
+        <div style="position:relative;left:-100px" class="right">
+            @*<div class="url">Hoa Đẹp Lắm Đó>></div>*@
+            @foreach (var anhsp in anh)
+            {
+                if (@anhsp.MaHoa == @item.MaHoa)
+                {
+                    <div class="pname" style="width:500px">@anhsp.TenHoa</div>
+                }
+            }
+            <div class="ratings">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">Số Lương: @item.SoLuong</div>
+            <div class="price">Đơn Giá: @item.GiaBanLe</div>
+            <div class="price">Thành Tiền: @item.TongTien</div>
+
+
+        </div>
+
+
+    </div>
+}
+
+
+</div>
+
+<script>
+    let bigImg = document.querySelector('.big-img img');
+    function showImg(pic) {
+        bigImg.src = pic;
+    }
+</script>
+<script>
+    function themVaoGioHang(maHoa) {
+        $.ajax({
+            type: "POST",
+            url: "/Home/ThemGioHang",
+            data: { maHoa: maHoa },
+            success: function (result) {
+                if (result.success) {
+                    alert("Thêm Thành Công");
+                } else {
+                    if (result.redirect) {
+                        window.location.href = result.redirect; // Chuyển hướng nếu cần
+                    } else {
+                        alert("Đã xảy ra lỗi khi thêm vào giỏ hàng.");
+                    }
+                }
+            },
+            error: function () {
+                alert("Đã xảy ra lỗi khi thực hiện yêu cầu.");
+            }
+        });
+    }
+
+</script>
